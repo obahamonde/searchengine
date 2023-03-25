@@ -52,7 +52,7 @@ async def fetch(
             return await response.read()
 
 async def scrape(url:str, el:dict):
-    response = await fetch(url, headers= {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0"})
+    response = await fetch(url, headers= default_headers)
     if isinstance(response, str):
         soup = BeautifulSoup(response, "lxml")
         for k,v in el.items():
